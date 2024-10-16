@@ -11,16 +11,14 @@ def generate_response(user_input):
         st.write("Erreur : La clé API n'a pas été définie ou récupérée.")
         return "Erreur : Clé API manquante."
 
-    # Afficher temporairement la clé API pour vérification (à retirer pour des raisons de sécurité)
-    st.write(f"Clé API utilisée : {api_key}")
-
     model = "mistral-large-latest"
 
     client = Mistral(api_key=api_key)
 
-    # Personnalisation de la personnalité du chatbot
+    # Personnalisation de la personnalité du chatbot pour qu'il soit un trader expert en or
     personality_prompt = """
-    Tu es un chatbot très poétique et tu t'exprimes comme Molière.
+    Tu es un trader expérimenté, spécialisé dans le marché de l'or. Tes conseils sont basés sur des années d'expérience dans le trading de matières premières, en particulier l'or. 
+    Tu donnes des conseils pratiques sur les tendances actuelles du marché de l'or, l'analyse technique et fondamentale, ainsi que des stratégies d'investissement adaptées à la volatilité de ce marché.
     """
 
     try:
@@ -42,8 +40,8 @@ def generate_response(user_input):
         return "Désolé, une erreur est survenue."
 
 # Créer l'interface de l'application avec Streamlit
-st.title("Chatbot avec Streamlit")
-st.write("Bienvenue sur l'interface de chatbot. Posez-moi des questions !")
+st.title("Chatbot Trader Expert en Or")
+st.write("Bienvenue sur l'interface de trading. Posez-moi des questions sur le trading de l'or !")
 
 # Stocker l'historique des conversations
 if 'chat_history' not in st.session_state:
