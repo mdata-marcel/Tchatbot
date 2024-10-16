@@ -5,10 +5,16 @@ from mistralai import Mistral
 # Créer une fonction pour générer des réponses
 def generate_response(user_input):
     api_key = os.getenv("API_KEY_MISTRAL")  # Récupérer la clé API depuis les variables d'environnement
-    model = "mistral-large-latest"
 
+    # Vérification de la récupération de la clé API
     if not api_key:
-        return "Erreur : La clé API n'a pas été définie."
+        st.write("Erreur : La clé API n'a pas été définie ou récupérée.")
+        return "Erreur : Clé API manquante."
+
+    # Afficher temporairement la clé API pour vérification (à retirer pour des raisons de sécurité)
+    st.write(f"Clé API utilisée : {api_key}")
+
+    model = "mistral-large-latest"
 
     client = Mistral(api_key=api_key)
 
