@@ -5,7 +5,7 @@ from mistralai import Mistral
 
 # Créer une fonction pour générer des réponses
 def generate_response(user_input):
-    api_key = "HhErpTtuI4hJstOv6Z6cA0vawDYfeFB2"
+    api_key = "api_key"
     model = "mistral-large-latest"
 
     client = Mistral(api_key=api_key)
